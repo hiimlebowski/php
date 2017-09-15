@@ -1,0 +1,36 @@
+<link rel="stylesheet" type="text/css" href="fontawesome/css/font-awesome.min.css">
+
+<style> @import url('https://fonts.googleapis.com/css?family=Raleway');
+.contenedor { padding: 2% 3%; }
+
+a { font-family: 'Raleway', sans-serif; font-size: 14px;  }
+p { font-family: 'Raleway', sans-serif; font-size: 14px;  }
+
+.awesomeicon_check {  color: green; }
+.awesomeicon_close {  color: red;   } </style>
+
+
+
+<div class='contenedor'>
+
+
+
+<?php
+
+echo	'<a><b>test database</b>. servidor PHP version </a>' . phpversion();
+
+$conexion = @mysqli_connect('host', 'username', 'passwd', 'databasename');
+
+if ($conexion) { 
+echo "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySQL <a class='awesomeicon_check'><i class='fa fa-check' aria-hidden='true'></i></a>";
+echo " se ha establecido conexion con la base de datos</p>";
+}
+
+
+else	{   echo "<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySQL <a class='awesomeicon_close'><i class='fa fa-times' aria-hidden='true'></i></a>";
+	        echo " no se ha podido conectar con la base de datos</p>";
+}
+
+@mysqli_close($conexion);	
+
+?>    </div>
